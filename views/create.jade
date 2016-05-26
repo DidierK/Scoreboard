@@ -4,5 +4,17 @@ html(lang='en')
     meta(charset='UTF-8')
     title= title
 
+    h1 Scoreboard management
+    a.calltoaction__link(href='scoreboard') Go to scoreboard
 
-    h1 Add game
+    div#SignUp
+        h3 New game
+      form(action="/admin" method="post" name="inputForm")
+        label Team 1: &nbsp;
+        input(id="team1", placeholder="Belgium" name="team1" required)
+        br
+        label Team 2: &nbsp;
+        input(id="team2", placeholder="Italy" name="team2" required)
+        br
+
+        button( type="submit" id="submit") Submit
