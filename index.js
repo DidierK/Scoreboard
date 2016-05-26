@@ -1,10 +1,13 @@
 var express = require('express');
+var app = express();
+var server = app.listen(3000);
 var bodyParser = require('body-parser');
 var jade = require('jade');
+var io = require('socket.io').listen(server);
+
 var mongoose = require('mongoose');
 
-var app = express();
-
+app.use(express.static(__dirname + '/public'));
 // Connection
 mongoose.connect('mongodb://localhost/Scoreboard');
 
@@ -18,7 +21,3 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use('/',require('./routers/index'));
 app.use('/scoreboard',require('./routers/scoreboard'));
 app.use('/admin',require('./routers/admin'));
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});

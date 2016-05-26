@@ -3,6 +3,8 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     title= title
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+
 
     h1 Scoreboard management for admins
     a.calltoaction__link(href='scoreboard') Go to scoreboard
@@ -11,7 +13,7 @@ html(lang='en')
         h3 New game
       form(action="/admin" method="post" name="inputForm")
         label Team 1: &nbsp;
-        input(id="team1", placeholder="Belgium" name="team1" required)
+        input(id="team1", placeholder="Belgium" name="team1")
         br
         label Team 2: &nbsp;
         input(id="team2", placeholder="Italy" name="team2" required)
@@ -19,8 +21,14 @@ html(lang='en')
 
         button( type="submit" id="submit") Submit
 
-        div.gameListAll
-              each game, i in all_games
-                    h3 #{game.team1} #{game.team1_score} - #{game.team2_score} #{game.team2}
-                    h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
-                    h4 Shots : #{game.team1_shots} - #{game.team2_shots}
+    div.gameListAll
+      each game, i in all_games
+        h3 #{game.team1} #{game.team1_score} - #{game.team2_score} #{game.team2}
+        h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
+        h4 Shots : #{game.team1_shots} - #{game.team2_shots}
+
+        form(action="" name="inputScore" id="raiseScore1")
+          button(type="submit" id="scoreSubmit") +1
+
+        script(src="https://cdn.socket.io/socket.io-1.4.5.js")
+        script(src="/javascripts/sockets.js")

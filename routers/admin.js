@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Game = require('../models/game');
 
+
 router.get('/', function(req,res) {
   var db = req.db;
 	Game.find().exec(function(err, games){
