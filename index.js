@@ -1,8 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var jade = require('jade');
+var mongoose = require('mongoose');
 
 var app = express();
+
+// Connection
+mongoose.connect('mongodb://localhost/Scoreboard');
 
 // view engine setup
 app.set('view engine', 'jade');
