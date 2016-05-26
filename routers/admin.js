@@ -25,13 +25,7 @@ router.post('/', function(req, res) {
 
 
 			"team1" : team1,
-			"team2" : team2,
-      "team1_score" : 0,
-      "team2_score" : 0,
-      "team1_shots" : 0,
-      "team2_shots" : 0,
-      "team1_fouls" : 0,
-      "team2_fouls" : 0
+			"team2" : team2
 
 		}).save(function (err, doc) {
 			if (err) {
@@ -45,5 +39,25 @@ router.post('/', function(req, res) {
 		});
 
 });
+
+router.post('/', function(req, res) {
+    var team1_score = req.body.score1;
+    new Game({
+
+			"team1_score" : team1_score,
+
+		}).update(function (err, doc) {
+			if (err) {
+				res.send("Database submit error");
+				console.log("Database insert FAILED");
+			}
+			else {
+				console.log("Database insert SUCCESS");
+				res.redirect("/admin");
+			}
+		});
+});
+
+
 
 module.exports = router;

@@ -4,18 +4,22 @@ $(document).ready(function() {
     var socket = io.connect();
     var result = "";
 
+    var team1_score = 0;
+
     $("#raiseScore1").on("submit", function(e) {
         e.preventDefault();
 
-        var team1_score = 1;
+        team1_score++;
 
-        //mongo schema includen
         result = {
-            "team1_score": team1_score,
+            "team1_score": team1_score
         };
 
-        socket.emit("postScore", result);
+        socket.emit(result);
         console.log(result);
-    });
 
+        $("#score1").val(team1_score);
+
+        
+    });
 });
