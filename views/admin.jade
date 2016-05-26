@@ -18,3 +18,9 @@ html(lang='en')
         br
 
         button( type="submit" id="submit") Submit
+
+        div.gameListAll
+              each game, i in all_games
+                    h3 #{game.team1} #{game.team1_score} - #{game.team2_score} #{game.team2}
+                    h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
+                    h4 Shots : #{game.team1_shots} - #{game.team2_shots}

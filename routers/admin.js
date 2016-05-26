@@ -3,7 +3,13 @@ var router = express.Router();
 var Game = require('../models/game');
 
 router.get('/', function(req,res) {
-  res.render('admin', { title: 'Admin' });
+  var db = req.db;
+	Game.find().exec(function(err, games){
+		res.render('admin', {
+			"all_games" : games,
+			"title": "Admin management"
+		});
+	});
 });
 
 // ADD NEW GAME
