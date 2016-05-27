@@ -23,13 +23,10 @@ html(lang='en')
 
     div.gameListAll
       each game, i in all_games
-        input(id="score1" ,value="#{game.team1_score}")
-        h3 #{game.team1} #{game.team1_score} - #{game.team2_score} #{game.team2}
-        h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
-        h4 Shots : #{game.team1_shots} - #{game.team2_shots}
+        li
+          a(class="hvr-grow" href="/admin/#{game.id}")
+            h2 #{game.team1} vs #{game.team2}
 
-        form(action="" name="inputScore" id="raiseScore1")
-          button(type="submit" id="scoreSubmit") +1
 
         script(src="http://localhost:3000/socket.io/socket.io.js")
         script(src="/javascripts/sockets.js")

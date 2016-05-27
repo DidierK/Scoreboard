@@ -3,6 +3,7 @@ var app = express();
 var server = app.listen(3000);
 var bodyParser = require('body-parser');
 var jade = require('jade');
+var Sequence = require('sequence');
 var io = require('socket.io').listen(server);
 
 var mongoose = require('mongoose');

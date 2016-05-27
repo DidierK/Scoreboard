@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title= title
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+
+
+
+  div.gameListAll
+
+      input(id="score1" ,value="#{game.team1_score}")
+      h3 #{game.team1} #{game.team1_score} - #{game.team2_score} #{game.team2}
+      h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
+      h4 Shots : #{game.team1_shots} - #{game.team2_shots}
+
+      form(action="" name="inputScore" id="raiseScore1")
+        input(id="stat_game_id", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="scoreSubmit") +1
+
+      script(src="http://localhost:3000/socket.io/socket.io.js")
+      script(src="/javascripts/sockets.js")
