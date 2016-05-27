@@ -7,11 +7,12 @@ $(document).ready(function() {
     $("#raiseScore1").on("submit", function(e) {
         e.preventDefault();
 
-        team1_score = 2;
+        team1_score = 0;
+        team1_score +1;
         $("#score1").val(team1_score);
 
         var stat_game_id = $("#stat_game_id").val();
-        var team1_score = $("#score1").val();
+        var stat_team1_score = $("#score1").val();
 
         result = {
             "#stat_game_id" : stat_game_id,

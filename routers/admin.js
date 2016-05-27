@@ -69,26 +69,12 @@ router.post('/:id', function(req, res) {
 
 	var db = req.db;
 
-	Discussion.findOne().where('', '').exec(function(err, comment){
+	Game.findOne().where('', '').exec(function(err, stat){
 
 		//form vals
+    var stat_game_id = req.body.stat_game_id;
 		var stat_team1_score = req.body.score1;
 
-
-		// new Comment({
-		// 	"cmt_author": cmt_author,
-		// 	"cmt_body": cmt_body,
-		// 	"cmt_date": cmt_date
-		// }).save(function (err, doc){
-		// 	if (err) {
-		// 		res.send("Comment submit to DB failed");
-		// 		console.log("Comment insert FAILED");
-		// 	}
-		// 	else {
-		// 		console.log("Comment insert SUCCESS");
-		// 		res.redirect("/discussions/"+uid);
-		// 	}
-		// });
 
 
 	});

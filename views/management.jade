@@ -14,7 +14,7 @@ html(lang='en')
       h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
       h4 Shots : #{game.team1_shots} - #{game.team2_shots}
 
-      form(action="" name="inputScore" id="raiseScore1")
+      form(action="" name="inputScore" id="raiseScore1" method="post")
         input(id="stat_game_id", name ="stat_game_id" style="display: none;" value="#{game.id}")
         button(type="submit" id="scoreSubmit") +1
 
