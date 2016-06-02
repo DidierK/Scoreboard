@@ -9,14 +9,18 @@ html(lang='en')
 
   div.gameListAll
 
-      input(id="score1" ,value="#{game.team1_score}")
+      input(id="score1")
       h3 #{game.team1} #{game.team1_score} - #{game.team2_score} #{game.team2}
       h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
       h4 Shots : #{game.team1_shots} - #{game.team2_shots}
 
       form(action="" name="inputScore" id="raiseScore1" method="post")
-        input(id="stat_game_id", name ="stat_game_id" style="display: none;" value="#{game.id}")
-        button(type="submit" id="scoreSubmit") +1
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="scoreRaise") +1
+
+      form(action="" name="inputScore" id="lowerScore1" method="post")
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="scoreLower") -1
 
       script(src="http://localhost:3000/socket.io/socket.io.js")
       script(src="/javascripts/sockets.js")

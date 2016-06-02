@@ -6,6 +6,13 @@ var jade = require('jade');
 var Sequence = require('sequence');
 var io = require('socket.io').listen(server);
 
+io.on('connection', function(socket){
+  socket.on('score_changed', function(result){
+    console.log('Game ID: ' + result.stat_game_id);
+    console.log('Score: ' + result.team1_score);
+  });
+});
+
 var mongoose = require('mongoose');
 
 app.use(express.static(__dirname + '/public'));

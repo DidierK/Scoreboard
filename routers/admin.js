@@ -3,6 +3,8 @@ var router = express.Router();
 var Game = require('../models/game');
 var Stat = require('../models/stats');
 var Sequence = require('sequence');
+var app = express();
+var io = require('socket.io').listen();
 
 
 router.get('/', function(req,res) {
@@ -64,21 +66,6 @@ router.post('/', function(req, res) {
 
 });
 
-router.post('/:id', function(req, res) {
-	console.log("score post received");
-
-	var db = req.db;
-
-	Game.findOne().where('', '').exec(function(err, stat){
-
-		//form vals
-    var stat_game_id = req.body.stat_game_id;
-		var stat_team1_score = req.body.score1;
-
-
-
-	});
-});
 
 
 
