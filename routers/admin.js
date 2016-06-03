@@ -3,8 +3,7 @@ var router = express.Router();
 var Game = require('../models/game');
 var Stat = require('../models/stats');
 var Sequence = require('sequence');
-var app = express();
-var io = require('socket.io').listen();
+
 
 
 router.get('/', function(req,res) {
@@ -63,10 +62,7 @@ router.post('/', function(req, res) {
 				res.redirect("/admin");
 			}
 		});
-
 });
-
-
 
 
 module.exports = router;
