@@ -2,6 +2,8 @@ var team1_score = $("#score1").val();
 var team2_score = $("#score2").val();
 var team1_fouls = $("#fouls1").val();
 var team2_fouls = $("#fouls2").val();
+var team1_shots = $("#shots1").val();
+var team2_shots = $("#shots2").val();
 
 $(document).ready(function() {
 
@@ -13,6 +15,8 @@ $(document).ready(function() {
     $("#score2").val(team2_score);
     $("#fouls1").val(team1_fouls);
     $("#fouls2").val(team2_fouls);
+    $("#shots1").val(team1_shots);
+    $("#shots2").val(team2_shots);
 
     /* ---
 
@@ -150,7 +154,7 @@ $(document).ready(function() {
 
     $("#lowerFouls1").on("submit", function(e) {
         e.preventDefault();
-        console.log("test");
+
         team1_fouls --;
         $("#fouls1").val(team1_fouls);
 
@@ -215,6 +219,106 @@ $(document).ready(function() {
 
     });
 
+
+    /* ---
+
+    RAISE SHOTS 1
+
+    --- */
+
+    $("#raiseShots1").on("submit", function(e) {
+
+        e.preventDefault();
+
+        team1_shots ++;
+        $("#shots1").val(team1_shots);
+
+        var stat_game_id = $("#stat_game_id").val();
+
+        result = {
+            "stat_game_id" : stat_game_id,
+            "team1_shots": team1_shots
+        };
+
+        socket.emit('shots_changed1', result);
+        console.log(result);
+
+
+    });
+
+    /* ---
+
+    LOWER SHOTS 1
+
+    --- */
+
+    $("#lowerShots1").on("submit", function(e) {
+        e.preventDefault();
+
+        team1_shots --;
+        $("#shots1").val(team1_shots);
+
+        var stat_game_id = $("#stat_game_id").val();
+
+        result = {
+            "stat_game_id" : stat_game_id,
+            "team1_shots": team1_shots
+        };
+
+        socket.emit('shots_changed1', result);
+        console.log(result);
+
+    });
+
+    /* ---
+
+    RAISE SHOTS 2
+
+    --- */
+
+    $("#raiseShots2").on("submit", function(e) {
+        e.preventDefault();
+
+        team2_shots ++;
+        $("#shots2").val(team2_shots);
+
+        var stat_game_id = $("#stat_game_id").val();
+
+        result = {
+            "stat_game_id" : stat_game_id,
+            "team2_shots": team2_shots
+        };
+
+        socket.emit('shots_changed2', result);
+        console.log(result);
+
+
+    });
+
+    /* ---
+
+    LOWER SHOTS 2
+
+    --- */
+
+    $("#lowerShots2").on("submit", function(e) {
+        e.preventDefault();
+
+        team2_shots --;
+        $("#shots2").val(team2_shots);
+
+        var stat_game_id = $("#stat_game_id").val();
+
+        result = {
+            "stat_game_id" : stat_game_id,
+            "team2_shots": team2_shots
+        };
+
+        socket.emit('shots_changed2', result);
+        console.log(result);
+
+    });
+
     socket.on('score_changed1', function(result){
       $('#score1value').text(result.team1_score);
     });
@@ -229,5 +333,13 @@ $(document).ready(function() {
 
     socket.on('fouls_changed2', function(result){
       $('#fouls2value').text(result.team2_fouls);
+    });
+
+    socket.on('shots_changed1', function(result){
+      $('#shots1value').text(result.team1_shots);
+    });
+
+    socket.on('shots_changed2', function(result){
+      $('#shots2value').text(result.team2_shots);
     });
 });
