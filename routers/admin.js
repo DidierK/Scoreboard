@@ -46,6 +46,10 @@ router.post('/', function(req, res) {
     var team2 = req.body.team2;
     var team1_score = 0;
     var team2_score = 0;
+    var team1_fouls = 0;
+    var team2_fouls = 0;
+    var team1_shots = 0;
+    var team2_shots = 0;
 
     new Game({
 
@@ -53,7 +57,11 @@ router.post('/', function(req, res) {
 			"team1" : team1,
 			"team2" : team2,
       "team1_score" : team1_score,
-      "team2_score" : team1_score
+      "team2_score" : team2_score,
+      "team1_fouls" : team1_fouls,
+      "team2_fouls" : team2_fouls,
+      "team1_shots" : team1_shots,
+      "team2_shots" : team2_shots
 
 		}).save(function (err, doc) {
 			if (err) {

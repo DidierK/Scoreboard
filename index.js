@@ -47,6 +47,41 @@ io.on('connection', function(socket){
 
     });
   });
+  socket.on('fouls_changed1', function(result){
+    console.log('Game ID: ' + result.stat_game_id);
+    console.log('Fouls 1 : ' + result.team1_fouls);
+
+    var stat_game_id = result.stat_game_id;
+    var team1_fouls = result.team1_fouls;
+
+    Game.find({"_id" : result.stat_game_id}, function (err, docs) {
+
+    Game.update({$set: {team1_fouls: team1_fouls}}, function(err, result){
+      console.log("Updated successfully");
+
+    });
+    io.emit('fouls_changed1', result);
+
+    });
+  });
+
+  socket.on('fouls_changed2', function(result){
+    console.log('Game ID: ' + result.stat_game_id);
+    console.log('Fouls 2 : ' + result.team2_fouls);
+
+    var stat_game_id = result.stat_game_id;
+    var team2_fouls = result.team2_fouls;
+
+    Game.find({"_id" : result.stat_game_id}, function (err, docs) {
+
+    Game.update({$set: {team2_fouls: team2_fouls}}, function(err, result){
+      console.log("Updated successfully");
+
+    });
+    io.emit('fouls_changed2', result);
+
+    });
+  });
 });
 
 

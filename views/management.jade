@@ -9,14 +9,21 @@ html(lang='en')
 
       input(id="score1",value="#{game.team1_score}",type="hidden" )
       input(id="score2",value="#{game.team2_score}",type="hidden" )
+      input(id="fouls1",value="#{game.team1_fouls}",type="hidden" )
+      input(id="fouls2",value="#{game.team2_fouls}",type="hidden" )
 
       h1 #{game.team1} - #{game.team2}
 
       h3#score1value #{game.team1_score}
       h3#score2value #{game.team2_score}
-      h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
-      h4 Shots : #{game.team1_shots} - #{game.team2_shots}
 
+      h2 Fouls :
+
+      h3#fouls1value #{game.team1_fouls}
+      h3#fouls2value #{game.team2_fouls}
+
+
+      h4 Score 1
       form(action="" name="inputScore" id="raiseScore1" method="post")
         input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
         button(type="submit" id="scoreRaise") +1
@@ -25,6 +32,7 @@ html(lang='en')
         input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
         button(type="submit" id="scoreLower") -1
 
+      h4 Score 2
       form(action="" name="inputScore" id="raiseScore2" method="post")
         input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
         button(type="submit" id="scoreRaise") +1
@@ -32,6 +40,25 @@ html(lang='en')
       form(action="" name="inputScore" id="lowerScore2" method="post")
         input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
         button(type="submit" id="scoreLower") -1
+
+
+      h4 Fouls 1
+      form(action="" name="inputFouls" id="raiseFouls1" method="post")
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="foulsRaise") +1
+
+      form(action="" name="inputFouls" id="lowerFouls1" method="post")
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="foulsLower") -1
+
+      h4 Fouls 2
+      form(action="" name="inputFouls" id="raiseFouls2" method="post")
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="foulsRaise") +1
+
+      form(action="" name="inputScore" id="lowerFouls2" method="post")
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="foulsLower") -1
 
       script(src="http://localhost:3000/socket.io/socket.io.js")
       script(src="/javascripts/sockets.js")
