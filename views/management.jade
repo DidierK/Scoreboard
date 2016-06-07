@@ -8,9 +8,12 @@ html(lang='en')
   div.gameListAll
 
       input(id="score1",value="#{game.team1_score}",type="hidden" )
-      h3#score1value #{game.team1_score}
+      input(id="score2",value="#{game.team2_score}",type="hidden" )
 
-      h3 - #{game.team2_score} #{game.team2}
+      h1 #{game.team1} - #{game.team2}
+
+      h3#score1value #{game.team1_score}
+      h3#score2value #{game.team2_score}
       h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
       h4 Shots : #{game.team1_shots} - #{game.team2_shots}
 
@@ -19,6 +22,14 @@ html(lang='en')
         button(type="submit" id="scoreRaise") +1
 
       form(action="" name="inputScore" id="lowerScore1" method="post")
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="scoreLower") -1
+
+      form(action="" name="inputScore" id="raiseScore2" method="post")
+        input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        button(type="submit" id="scoreRaise") +1
+
+      form(action="" name="inputScore" id="lowerScore2" method="post")
         input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
         button(type="submit" id="scoreLower") -1
 

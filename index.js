@@ -13,7 +13,7 @@ var db = mongoose.connect('mongodb://localhost/Scoreboard');
 
 
 io.on('connection', function(socket){
-  socket.on('score_changed', function(result){
+  socket.on('score_changed1', function(result){
     console.log('Game ID: ' + result.stat_game_id);
     console.log('Team 1 Score: ' + result.team1_score);
 
@@ -26,7 +26,24 @@ io.on('connection', function(socket){
       console.log("Updated successfully");
 
     });
-    io.emit('score_changed', result);
+    io.emit('score_changed1', result);
+
+    });
+  });
+  socket.on('score_changed2', function(result){
+    console.log('Game ID: ' + result.stat_game_id);
+    console.log('Team 2 Score: ' + result.team2_score);
+
+    var stat_game_id = result.stat_game_id;
+    var team2_score = result.team2_score;
+
+    Game.find({"_id" : result.stat_game_id}, function (err, docs) {
+
+    Game.update({$set: {team2_score: team2_score}}, function(err, result){
+      console.log("Updated successfully");
+
+    });
+    io.emit('score_changed2', result);
 
     });
   });
