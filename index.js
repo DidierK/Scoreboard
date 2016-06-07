@@ -5,17 +5,11 @@ var bodyParser = require('body-parser');
 var jade = require('jade');
 var Sequence = require('sequence');
 var io = require('socket.io').listen(server);
+var Game = require('./models/game');
 
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/Scoreboard');
 
-var statSchema = mongoose.Schema({
-
-    stat_game_id: String,
-    stat_team1_score: Number
-});
-
-var Stat = mongoose.model('Stat', statSchema);
 
 
 io.on('connection', function(socket){
@@ -26,39 +20,14 @@ io.on('connection', function(socket){
     var stat_game_id = result.stat_game_id;
     var team1_score = result.team1_score;
 
-    Stat.find().where("stat_game_id", stat_game_id).exec(function(err, stat){
-  		if (err) {
-        console.log("No game ID found!");
-        /*var newScore = new Stat({
-          "stat_game_id": stat_game_id,
-          "stat_team1_score": team1_score});
+    Game.find({"_id" : result.stat_game_id}, function (err, docs) {
+      console.log(docs);
 
-          newScore.save(function(err,resp) {
-            if(err) {
-                console.log(err);
-
-            } else {
-                console.log("score insert succes");
-            }
-        });*/
-
-  			} else {
-  				console.log("Game ID found!");
-
-          /*var updateScore = new Stat({
-            "stat_game_id": stat_game_id,
-            "stat_team1_score": team1_score});
-
-            updateScore.update(function(err,resp) {
-              if(err) {
-                  console.log(err);
-
-              } else {
-                  console.log("score insert succes");
-              }
-          });*/
-  				}
-  		});
+    Game.update({$set: {team1_score: team1_score}}, function(err, result){
+      console.log("Updated successfully");
+      console.log(result);
+    });
+    });
   });
 });
 

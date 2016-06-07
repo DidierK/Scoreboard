@@ -45,12 +45,14 @@ router.post('/', function(req, res) {
 		Sequence.next+=1;
     var team1 = req.body.team1;
     var team2 = req.body.team2;
+    var team1_score = 0;
 
     new Game({
 
       "id": id,
 			"team1" : team1,
-			"team2" : team2
+			"team2" : team2,
+      "team1_score" : team1_score
 
 		}).save(function (err, doc) {
 			if (err) {
