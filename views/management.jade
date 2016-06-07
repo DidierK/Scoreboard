@@ -4,6 +4,7 @@ html(lang='en')
     meta(charset='UTF-8')
     title= title
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    link(rel='stylesheet', href='/stylesheets/style.css')
 
   div.gameListAll
 
@@ -12,10 +13,11 @@ html(lang='en')
       input(id="fouls1",value="#{game.team1_fouls}",type="hidden" )
       input(id="fouls2",value="#{game.team2_fouls}",type="hidden" )
 
-      h1 #{game.team1} - #{game.team2}
-
-      h3#score1value #{game.team1_score}
-      h3#score2value #{game.team2_score}
+      div.intro
+        h1.teams #{game.team1} - #{game.team2}
+        div.mainscores
+          h3#score1value #{game.team1_score}
+          h3#score2value #{game.team2_score}
 
       h2 Fouls :
 

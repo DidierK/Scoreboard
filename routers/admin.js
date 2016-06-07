@@ -25,7 +25,6 @@ router.get('/:id', function(req, res) {
 		if (err) {
 			console.log("No discussion with given ID found.");
 			} else {
-				console.log("ID found!");
 				res.render("management", {game : game});
 				}
 		});
