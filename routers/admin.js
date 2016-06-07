@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Game = require('../models/game');
-var Stat = require('../models/stats');
 var Sequence = require('sequence');
 
 

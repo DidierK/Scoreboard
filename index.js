@@ -21,12 +21,13 @@ io.on('connection', function(socket){
     var team1_score = result.team1_score;
 
     Game.find({"_id" : result.stat_game_id}, function (err, docs) {
-      console.log(docs);
 
     Game.update({$set: {team1_score: team1_score}}, function(err, result){
       console.log("Updated successfully");
-      console.log(result);
+
     });
+    io.emit('score_changed', result);
+
     });
   });
 });

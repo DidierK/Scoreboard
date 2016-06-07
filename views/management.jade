@@ -5,12 +5,12 @@ html(lang='en')
     title= title
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
 
-
-
   div.gameListAll
 
-      input(id="score1")
-      h3 #{game.team1} #{game.team1_score} - #{game.team2_score} #{game.team2}
+      input(id="score1",value="#{game.team1_score}",type="hidden" )
+      h3#score1value #{game.team1_score}
+
+      h3 - #{game.team2_score} #{game.team2}
       h4 Fouls : #{game.team1_fouls} - #{game.team2_fouls}
       h4 Shots : #{game.team1_shots} - #{game.team2_shots}
 

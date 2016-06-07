@@ -1,4 +1,4 @@
-var team1_score = 0;
+var team1_score = $("#score1").val();
 
 $(document).ready(function() {
 
@@ -24,6 +24,8 @@ $(document).ready(function() {
 
         socket.emit('score_changed', result);
         console.log(result);
+
+
     });
 
     $("#lowerScore1").on("submit", function(e) {
@@ -42,5 +44,10 @@ $(document).ready(function() {
 
         socket.emit('score_changed', result);
         console.log(result);
+
+    });
+
+    socket.on('score_changed', function(result){
+      $('#score1value').text(result.team1_score);
     });
 });
