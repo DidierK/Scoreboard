@@ -114,7 +114,7 @@ io.on('connection', function(socket){
       console.log("Updated successfully");
 
     });
-    io.emit('shots_changed1', result);
+    io.emit('shots_changed2', result);
 
     });
   });

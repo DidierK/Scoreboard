@@ -61,7 +61,7 @@ html(lang='en')
             input(id="stat_game_id", type="hidden", name ="stat_game_id" style="display: none;" value="#{game.id}")
             button(type="submit" id="foulsLower") -1
 
-      div.whitespace      
+      div.whitespace
       div.shots
         h1 Shots
         div.shotscontent
@@ -87,9 +87,19 @@ html(lang='en')
 
 
 
+      div.comments
+      form(action="" name="inputShots" id="inputComment" method="post")
+        input(id="stat_game_id", type="text", name ="stat_game_id" style="display: none;" value="#{game.id}")
+        input(id="game_comment", type="text", name ="game_comment")
+
+        button(type="submit" id="submitComment") Enter
+      #messages
+      #messages li
+      #messages li:nth-child(odd)
 
 
 
 
       script(src="http://localhost:3000/socket.io/socket.io.js")
       script(src="/javascripts/sockets.js")
+      script(src="/javascripts/socket_comments.js")
