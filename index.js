@@ -6,6 +6,7 @@ var jade = require('jade');
 var Sequence = require('sequence');
 var io = require('socket.io').listen(server);
 var Game = require('./models/game');
+var Comment = require('./models/comment');
 
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/Scoreboard');
@@ -118,6 +119,29 @@ io.on('connection', function(socket){
 
     });
   });
+  socket.on('newComment', function(result){
+    console.log('Game ID: ' + result.stat_game_id);
+    console.log('Shots 2 : ' + result.game_comment);
+
+    var stat_game_id = result.stat_game_id;
+    var game_comment = result.game_comment;
+
+    new Comment({
+
+      "stat_game_id": stat_game_id,
+			"game_comment" : game_comment,
+
+		}).save(function (err, doc) {
+			if (err) {
+				console.log("Database insert FAILED");
+			}
+			else {
+				console.log("Database insert SUCCESS");
+			}
+		});
+    io.emit('newComment', result);
+  });
+
 });
 
 

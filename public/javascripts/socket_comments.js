@@ -19,4 +19,8 @@ $(document).ready(function() {
       console.log(result);
   });
 
+  socket.on('newComment', function(result){
+    $('#messages').append($('<li>').text(result.game_comment));
+  });
+
 });
