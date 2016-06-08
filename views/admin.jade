@@ -9,24 +9,28 @@ html(lang='en')
     h1 Scoreboard management for admins
     a.calltoaction__link(href='scoreboard') Go to scoreboard
 
-    div#SignUp
-        h3 New game
-      form(action="/admin" method="post" name="inputForm")
-        label Team 1: &nbsp;
-        input(id="team1", placeholder="Belgium" name="team1")
-        br
-        label Team 2: &nbsp;
-        input(id="team2", placeholder="Italy" name="team2" required)
-        br
+    input(id="admin_password", placeholder="Password" type="password")
 
-        button( type="submit" id="submit") Submit
+    div.admincheck
+      div#SignUp
+          h3 New game
+        form(action="/admin" method="post" name="inputForm")
+          label Team 1: &nbsp;
+          input(id="team1", placeholder="Belgium" name="team1")
+          br
+          label Team 2: &nbsp;
+          input(id="team2", placeholder="Italy" name="team2" required)
+          br
 
-    div.gameListAll
-      each game, i in all_games
-        li
-          a(class="hvr-grow" href="/admin/#{game.id}")
-            h2 #{game.team1} vs #{game.team2}
+          button( type="submit" id="submit") Submit
+
+      div.gameListAll
+        each game, i in all_games
+          li
+            a(class="hvr-grow" href="/admin/#{game.id}")
+              h2 #{game.team1} vs #{game.team2}
 
 
         script(src="http://localhost:3000/socket.io/socket.io.js")
         script(src="/javascripts/sockets.js")
+        script(src="/javascripts/pass_check.js")
