@@ -6,3 +6,8 @@ html(lang='en')
 
 
     h1 Scoreboards
+    div.gameListAll
+      each game, i in all_games
+        li
+          a(class="hvr-grow" href="/scoreboard/#{game.id}")
+            h2 #{game.team1} vs #{game.team2}
