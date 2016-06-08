@@ -93,9 +93,13 @@ html(lang='en')
         input(id="game_comment", type="text", name ="game_comment")
 
         button(type="submit" id="submitComment") Enter
-      #messages
-      #messages li
-      #messages li:nth-child(odd)
+
+
+      div.commentsListAll
+        ul
+          each comment, i in all_comments
+            li
+              h2#messages #{comment.game_comment}
 
 
 

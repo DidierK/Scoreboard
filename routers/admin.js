@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Game = require('../models/game');
 var Sequence = require('sequence');
+var Comment = require('../models/comment');
 
 
 
@@ -15,20 +16,31 @@ router.get('/', function(req,res) {
 	});
 });
 
-router.get('/:id', function(req, res) {
+router.get('/:id', function(req, res, next) {
 
 	// ID VAN URL
 	var game_id = req.params.id;
 
-	// ZOEK VRAAG OP ID
+	// ZOEK GAME OP ID
 	Game.findOne().where("_id", game_id).exec(function(err, game){
 		if (err) {
 			console.log("No discussion with given ID found.");
 			} else {
-				res.render("management", {game : game});
+        console.log("Game Id found");
+        Comment.find().sort({ game_comment: 'desc' }).where("stat_game_id", game_id).exec(function(err, comments){
+            console.log(comments);
+                res.render('management', {
+                "all_comments" : comments,
+                game : game
+              });
+          });
 				}
 		});
+
 });
+
+
+
 
 // ADD NEW GAME
 router.post('/', function(req, res) {

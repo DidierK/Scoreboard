@@ -20,7 +20,7 @@ $(document).ready(function() {
   });
 
   socket.on('newComment', function(result){
-    $('#messages').append($('<li>').text(result.game_comment));
+    $('#messages').prepend($('<li>').text(result.game_comment));
   });
 
 });
