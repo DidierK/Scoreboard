@@ -88,18 +88,17 @@ html(lang='en')
 
 
       div.comments
-      form(action="" name="inputShots" id="inputComment" method="post")
-        input(id="stat_game_id", type="text", name ="stat_game_id" style="display: none;" value="#{game.id}")
-        input(id="game_comment", type="text", name ="game_comment")
+        h2 Live Comments
+          form(action="" name="inputShots" id="inputComment" method="post")
+            input(id="stat_game_id", type="text", name ="stat_game_id" style="display: none;" value="#{game.id}")
+            input(id="game_comment", type="text", name ="game_comment")
 
-        button(type="submit" id="submitComment") Enter
+            button(type="submit" id="submitComment") Enter
 
-
-      div.commentsListAll
-        ul
-          each comment, i in all_comments
-            li
-              h2#messages #{comment.game_comment}
+            #messages
+            div.commentsListAll
+                each comment, i in all_comments
+                  li #{comment.game_comment}
 
 
 
