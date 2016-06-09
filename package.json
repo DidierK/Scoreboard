@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DidierK/Scoreboard/issues"
   },
-  "homepage": "https://github.com/DidierK/Scoreboard#readme"
+  "homepage": "https://github.com/DidierK/Scoreboard#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
