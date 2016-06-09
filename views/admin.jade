@@ -4,31 +4,32 @@ html(lang='en')
     meta(charset='UTF-8')
     title= title
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    div.gamepanel
+      h1 Management
+      input(id="admin_password", placeholder="Password" type="password")
+      a(class="action" href='scoreboard') No admin ? Back to scoreboard!
 
 
-    h1 Scoreboard management for admins
-    a.calltoaction__link(href='scoreboard') Go to scoreboard
+      div.admincheck
+        div#SignUp
+            h3 New game
+          form(action="/admin" method="post" name="inputForm")
+            label Team 1: &nbsp;
+            input(id="team1", placeholder="Belgium" name="team1")
+            br
+            label Team 2: &nbsp;
+            input(id="team2", placeholder="Italy" name="team2" required)
+            br
 
-    input(id="admin_password", placeholder="Password" type="password")
+            button(class="newgame" type="submit" id="submit") New game
 
-    div.admincheck
-      div#SignUp
-          h3 New game
-        form(action="/admin" method="post" name="inputForm")
-          label Team 1: &nbsp;
-          input(id="team1", placeholder="Belgium" name="team1")
-          br
-          label Team 2: &nbsp;
-          input(id="team2", placeholder="Italy" name="team2" required)
-          br
-
-          button( type="submit" id="submit") Submit
-
-      div.gameListAll
-        each game, i in all_games
-          li
-            a(class="hvr-grow" href="/admin/#{game.id}")
-              h2 #{game.team1} vs #{game.team2}
+        div.games
+          each game, i in all_games
+            li
+              a(class="hvr-grow" href="/admin/#{game.id}")
+                h2 #{game.team1} vs #{game.team2}
 
 
         script(src="http://localhost:3000/socket.io/socket.io.js")

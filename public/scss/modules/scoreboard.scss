@@ -1,0 +1,150 @@
+$darkviolet: #060D31;
+$lightviolet: #0C276C;
+$lightblue: #54C2FF;
+$normalblue: #2C6DCE;
+
+.gameListAll{
+  background-image: url('../images/background2.jpg');
+  background-repeat: no-repeat;
+}
+
+.intro{
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  padding-top: 10px;
+
+}
+.teams{
+  font-size: 45px;
+}
+
+.mainscores{
+  font-size: 35px;
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-content: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.mainscores h3{
+  background-color: $darkviolet;
+  padding: 15px;
+  border: solid 2px #FFF;
+}
+
+#scoreRaise, #scoreLower, #foulsRaise, #foulsLower, #shotsRaise, #shotsLower{
+    margin-top: 70px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: $lightblue;
+    color: #FFF;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  #foulsRaise, #foulsLower, #shotsRaise, #shotsLower{
+    margin-top: 50px;
+  }
+
+  .fouls{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    background-color: $normalblue;
+    /*2C6DCE*/
+    opacity: 0.9;
+    margin-top: 100px;
+  }
+
+  .fouls h1{
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  .foulscontent{
+    font-size: 30px;
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-content: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+  }
+
+  .foulscontent h3{
+    background-color: $lightviolet;
+    padding: 10px;
+    border: solid 2px #FFF;
+  }
+
+  .shots{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    background-color: $normalblue;
+    opacity: 0.9;
+    margin-top: -20px;
+
+  }
+
+  .shots h1{
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  .shotscontent{
+    font-size: 30px;
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-content: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+  }
+
+  .shotscontent h3{
+    background-color: $lightviolet;
+    padding: 10px;
+    border: solid 2px #FFF;
+  }
+
+  .whitespace{
+    background-color: #FFF;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 5px;
+  }
+
+  .comments{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FFF;
+    opacity: 0.9;
+    width: 100%;
+    text-align: center;
+    color: $lightviolet;
+  }
+
+  .comments h2{
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  li{
+    font-size: 20px;
+    padding: 15px;
+    list-style-type: none;
+    font-style: italic;
+  }

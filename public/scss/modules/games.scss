@@ -1,0 +1,101 @@
+$darkviolet: #060D31;
+$lightviolet: #0C276C;
+$lightblue: #54C2FF;
+$normalblue: #2C6DCE;
+
+.gamepanel{
+  text-align: center;
+}
+
+.gamepanel h1{
+  font-size: 40px;
+  padding: 50px;
+}
+
+.gamepanel a:link,
+.gamepanel a:hover,
+.gamepanel a:visited,
+.gamepanel a:active{
+  text-decoration: none;
+}
+
+.gamepanel h2{
+  text-decoration: none;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+  width: 30%;
+}
+.gamepanel h2:hover{
+  background-color: $lightviolet;
+
+}
+
+a.action:link,
+a.action:hover,
+a.action:visited,
+a.action:active{
+  text-decoration: none;
+  color: #FFF;
+  margin: 20px;
+  padding: 20px;
+}
+
+
+a.action:hover{
+  text-decoration: underline;
+  color: #FFF;
+  margin: 20px;
+  padding: 20px;
+}
+
+input{
+  background-color: $normalblue;
+  padding: 10px;
+  border:none;
+  color: #FFF;
+  margin: 10px;
+}
+
+.newgame{
+  color: #fff;
+  background-color: $lightviolet;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  border: solid 1px #FFF;
+  margin: 25px;
+  cursor: pointer
+}
+
+#submitComment{
+  color: #fff;
+  background-color: $lightviolet;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  border: solid 1px #FFF;
+  margin: 25px;
+  cursor: pointer
+}
+
+
+::-webkit-input-placeholder {
+   color: #FFF;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #FFF;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFF;
+}
+
+:-ms-input-placeholder {
+   color: #FFF;
+}

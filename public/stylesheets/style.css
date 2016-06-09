@@ -1,5 +1,247 @@
-html {
-  font-size: 15px;
-  background-color: #C20F29; }
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+body {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  background-color: #0C276C;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat; }
+
+.gameListAll {
+  background-image: url("../images/background2.jpg");
+  background-repeat: no-repeat; }
+
+.intro {
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  padding-top: 10px; }
+
+.teams {
+  font-size: 45px; }
+
+.mainscores {
+  font-size: 35px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-content: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.mainscores h3 {
+  background-color: #060D31;
+  padding: 15px;
+  border: solid 2px #FFF; }
+
+#scoreRaise, #scoreLower, #foulsRaise, #foulsLower, #shotsRaise, #shotsLower {
+  margin-top: 70px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: #54C2FF;
+  color: #FFF;
+  font-size: 20px;
+  cursor: pointer; }
+
+#foulsRaise, #foulsLower, #shotsRaise, #shotsLower {
+  margin-top: 50px; }
+
+.fouls {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  background-color: #2C6DCE;
+  /*2C6DCE*/
+  opacity: 0.9;
+  margin-top: 100px; }
+
+.fouls h1 {
+  font-size: 30px;
+  padding: 20px; }
+
+.foulscontent {
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-content: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -40px; }
+
+.foulscontent h3 {
+  background-color: #0C276C;
+  padding: 10px;
+  border: solid 2px #FFF; }
+
+.shots {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  background-color: #2C6DCE;
+  opacity: 0.9;
+  margin-top: -20px; }
+
+.shots h1 {
+  font-size: 30px;
+  padding: 20px; }
+
+.shotscontent {
+  font-size: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-content: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -40px; }
+
+.shotscontent h3 {
+  background-color: #0C276C;
+  padding: 10px;
+  border: solid 2px #FFF; }
+
+.whitespace {
+  background-color: #FFF;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 5px; }
+
+.comments {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #FFF;
+  opacity: 0.9;
+  width: 100%;
+  text-align: center;
+  color: #0C276C; }
+
+.comments h2 {
+  font-size: 30px;
+  padding: 20px; }
+
+li {
+  font-size: 20px;
+  padding: 15px;
+  list-style-type: none;
+  font-style: italic; }
+
+.home {
+  text-align: center; }
+
+.home h1 {
+  font-size: 40px;
+  padding: 50px; }
+
+.home h2 {
+  font-size: 30px;
+  padding: 20px;
+  font-style: italic;
+  margin-bottom: 100px; }
+
+.home a:link,
+.home a:hover,
+.home a:visited,
+.home a:active {
+  text-decoration: none;
+  color: #fff;
+  background-color: #0C276C;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 3px #FFF;
+  margin: 25px; }
+
+.home a:hover {
+  background-color: #060D31; }
+
+.gamepanel {
+  text-align: center; }
+
+.gamepanel h1 {
+  font-size: 40px;
+  padding: 50px; }
+
+.gamepanel a:link,
+.gamepanel a:hover,
+.gamepanel a:visited,
+.gamepanel a:active {
+  text-decoration: none; }
+
+.gamepanel h2 {
+  text-decoration: none;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+  width: 30%; }
+
+.gamepanel h2:hover {
+  background-color: #0C276C; }
+
+a.action:link,
+a.action:hover,
+a.action:visited,
+a.action:active {
+  text-decoration: none;
+  color: #FFF;
+  margin: 20px;
+  padding: 20px; }
+
+a.action:hover {
+  text-decoration: underline;
+  color: #FFF;
+  margin: 20px;
+  padding: 20px; }
+
+input {
+  background-color: #2C6DCE;
+  padding: 10px;
+  border: none;
+  color: #FFF;
+  margin: 10px; }
+
+.newgame {
+  color: #fff;
+  background-color: #0C276C;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  border: solid 1px #FFF;
+  margin: 25px;
+  cursor: pointer; }
+
+#submitComment {
+  color: #fff;
+  background-color: #0C276C;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  border: solid 1px #FFF;
+  margin: 25px;
+  cursor: pointer; }
+
+::-webkit-input-placeholder {
+  color: #FFF; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #FFF; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #FFF; }
+
+:-ms-input-placeholder {
+  color: #FFF; }
 
 /*# sourceMappingURL=style.css.map */

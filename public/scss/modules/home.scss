@@ -1,0 +1,38 @@
+$darkviolet: #060D31;
+$lightviolet: #0C276C;
+$lightblue: #54C2FF;
+$normalblue: #2C6DCE;
+
+.home{
+  text-align: center;
+}
+
+.home h1{
+  font-size: 40px;
+  padding: 50px;
+}
+
+.home h2{
+  font-size: 30px;
+  padding: 20px;
+  font-style: italic;
+  margin-bottom: 100px;
+}
+
+.home a:link,
+.home a:hover,
+.home a:visited,
+.home a:active{
+  text-decoration: none;
+  color: #fff;
+  background-color: $lightviolet;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 3px #FFF;
+  margin: 25px;
+
+}
+
+.home a:hover{
+  background-color: $darkviolet;
+}

@@ -3,9 +3,11 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
 
-    
-    h1 Welcome to Football app
+    div.home
+      h1 Euro 2016 Football node.js app
+      h2 A briliant place where you can follow your team at Euro 2016
 
-    a.calltoaction__link(href='scoreboard') Go to scoreboard
-    a.calltoaction__link(href='admin') Admins
+      a(href='scoreboard') Go to scoreboard
+      a(href='admin') Admin panel

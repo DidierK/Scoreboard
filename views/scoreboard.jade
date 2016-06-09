@@ -3,11 +3,12 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
 
-
-    h1 Scoreboards
-    div.gameListAll
-      each game, i in all_games
-        li
-          a(class="hvr-grow" href="/scoreboard/#{game.id}")
-            h2 #{game.team1} vs #{game.team2}
+    div.gamepanel
+      h1 Live games
+      div.games
+        each game, i in all_games
+          li
+            a(class="hvr-grow" href="/scoreboard/#{game.id}")
+              h2 #{game.team1} vs #{game.team2}

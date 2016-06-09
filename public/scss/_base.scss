@@ -1,8 +1,15 @@
-$font-modern: "Helvetica", "Arial", "sans-serif";
-$shiraz: #C20F29;
-$mine-shaft: #363636;
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+$font: "Montserrat", Helvetica, Arial, sans-serif;
+$backcolor: #0C276C;
+$textcolor: #FFF;
 
-html{
-  font-size: 15px;
-  background-color: $shiraz;
+
+body{
+  font-family: $font;
+  background-color: $backcolor;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
 }
